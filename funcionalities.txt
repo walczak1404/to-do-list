@@ -1,0 +1,4 @@
+- dodawanie nowych zadań
+- kończenie wykonywania zadania
+- usuwanie zadania
+- przechowywanie zadań w local storage
