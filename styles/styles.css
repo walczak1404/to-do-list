@@ -16,3 +16,9 @@ body {
    font: 20px arial, sans-serif;
    background-color: var(--main-color);
 }
+
+#main-container {
+   width: 80%;
+   min-height: 200px;
+   border: 1px solid black;
+}
