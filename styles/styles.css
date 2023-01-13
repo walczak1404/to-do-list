@@ -1,0 +1,18 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   --main-color: #7d8491;
+   --light-yellow-color: #eaf0ce;
+   --silver-sand-color: #c0c5c1;
+   --english-violet-light-color: #574b60;
+   --english-violet-dark: #3f334d;
+}
+
+body {
+   font: 20px arial, sans-serif;
+   background-color: var(--main-color);
+}
