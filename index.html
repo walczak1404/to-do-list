@@ -6,6 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <script src="https://kit.fontawesome.com/fb3001e2e6.js" crossorigin="anonymous"></script>
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="styles/styles.css">
    <title>To do list</title>
@@ -16,17 +17,32 @@
       <p>don't forget anything!</p>
    </header>
    <main id="main-container">
-      <div class="works-container" id="works-undone">
-         <h2>Undone</h2>
-         <div class="works-list">
-            <ul></ul>
+      <div class="works-container" id="works-undone-container">
+         <div class="works-header">
+            <h2>Undone</h2>
          </div>
+         <div class="works-list">
+            <ul id="works-undone">
+               <li>
+                  <h3 class="work-name">Work title</h3>
+                  <div class="work-info">
+                     <p><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
+                     <p><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p><i class="fa-solid fa-circle-exclamation"></i> 7</p>
+                  </div>
+               </li>
+            </ul>
+         </div>
+         <!-- <div class="stats-container"></div> -->
       </div>
-      <div class="works-container" id="works-done">
-         <h2>Done</h2>
-         <div class="works-list">
-            <ul></ul>
+      <div class="works-container" id="works-done-container">
+         <div class="works-header">
+            <h2>Done</h2>
          </div>
+         <div class="works-list">
+            <ul id="works-done"></ul>
+         </div>
+         <!-- <div class="stats-container"></div> -->
       </div>
    </main>
    <button id="add-work-btn">+</button>

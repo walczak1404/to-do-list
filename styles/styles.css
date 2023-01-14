@@ -5,11 +5,14 @@
 }
 
 :root {
-   --roman-silver-color: #7d8491;
-   --light-yellow-color: #eaf0ce;
-   --silver-sand-color: #c0c5c1;
-   --english-violet-light-color: #574b60;
-   --english-violet-dark: #3f334d;
+   --a-color: #bfbfbf;
+   --b-color: #808080;
+   --c-color: #404040;
+   --d-color: #e6e6e6;
+
+   --main-color: var(--b-color);
+   --containers-bgc: var(--a-color);
+   --list-items-bgc: var(--d-color);
 }
 
 html {
@@ -18,13 +21,22 @@ html {
 
 body {
    background-color: white;
-   color: #999;
+   color: var(--main-color);
    height: 100vh;
+   margin: 0;
+}
+
+.dark-mode-toggle-container {
+   display: none;
+   position: fixed;
+   bottom: 10px;
+   left: 10px;
 }
 
 #page-title {
    text-align: center;
-   margin: 10px auto;
+   height: 85.3px;
+   padding-top: 10px;
 }
 
 #page-title > h1 {
@@ -44,21 +56,69 @@ body {
    flex-wrap: wrap;
    align-items: baseline;
    justify-content: space-evenly;
+   padding-top: 20px;
 }
 
 .works-container {
    border: 1px solid #999;
+   border-radius: 10px;
    flex-basis: 93%;
    max-width: 700px;
    min-height: 40%;
+   max-height: 1000px;
    margin: 10px;
+   background-color: var(--containers-bgc);
 }
 
-.works-container > h2 {
-   font-weight: 400;
-   text-align: center;
-   margin: 5px auto;
+.works-header {
+   height: 7vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: white;
+   border-radius: 10px 10px 0 0;
 }
+
+.works-header > h2 {
+   font-weight: 400;
+}
+
+.works-list {
+   width: 100%;
+   border-radius: 0 0 10px 10px;
+}
+
+.works-list > ul {
+   list-style-type: none;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.works-list > ul > li {
+   border-radius: 10px;
+   padding: 10px;
+   margin-top: 5px;
+   width: 99%;
+   background-color: var(--list-items-bgc);
+}
+
+.work-name {
+   font-weight: 400;
+   font-size: 1rem;
+   padding-bottom: 5px;
+}
+
+.work-info {
+   display: flex;
+   justify-content: space-evenly;
+   font-size: .6rem;
+}
+
+/* .stats-container {
+
+} */
 
 #add-work-btn {
    position: fixed;
@@ -66,9 +126,9 @@ body {
    right: 10px;
    width: 50px;
    height: 50px;
-   background-color: #999;
+   background-color: #777;
    color: white;
-   opacity: .7;
+   /* opacity: .7; */
    border-radius: 50%;
    border: none;
    font-size: 40px;
