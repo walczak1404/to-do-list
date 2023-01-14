@@ -5,20 +5,72 @@
 }
 
 :root {
-   --main-color: #7d8491;
+   --roman-silver-color: #7d8491;
    --light-yellow-color: #eaf0ce;
    --silver-sand-color: #c0c5c1;
    --english-violet-light-color: #574b60;
    --english-violet-dark: #3f334d;
 }
 
+html {
+   font: 20px 'Roboto', arial, sans-serif;
+}
+
 body {
-   font: 20px arial, sans-serif;
-   background-color: var(--main-color);
+   background-color: white;
+   color: #999;
+   height: 100vh;
+}
+
+#page-title {
+   text-align: center;
+   margin: 10px auto;
+}
+
+#page-title > h1 {
+   text-transform: uppercase;
+   font-weight: 400;
+}
+
+#page-title > p {
+   font-weight: 100;
+   font-size: .9rem;
 }
 
 #main-container {
-   width: 80%;
-   min-height: 200px;
-   border: 1px solid black;
+   width: 100%;
+   height: 80%;
+   /* border: 1px solid black; */
+}
+
+#add-work-btn {
+   position: fixed;
+   bottom: 10px;
+   right: 10px;
+   width: 50px;
+   height: 50px;
+   background-color: #999;
+   color: white;
+   opacity: .7;
+   border-radius: 50%;
+   border: none;
+   font-size: 40px;
+}
+
+@media (min-width: 500px) {
+   #add-work-btn {
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+   }
+}
+
+@media (min-width: 800px) {
+   #add-work-btn {
+      width: 70px;
+      height: 70px;
+      bottom: 30px;
+      right: 30px;
+   }
 }

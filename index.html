@@ -4,13 +4,31 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="styles/styles.css">
    <title>To do list</title>
 </head>
 <body>
+   <header id="page-title">
+      <h1>to do list</h1>
+      <p>don't forget anything!</p>
+   </header>
    <main id="main-container">
-      <div class="works-container" id="works-undone"></div>
-      <div class="works-container" id="works-done"></div>
+      <div class="works-container" id="works-undone">
+         <h2>Undone</h2>
+         <div class="works-list">
+            <ul></ul>
+         </div>
+      </div>
+      <div class="works-container" id="works-done">
+         <h2>Done</h2>
+         <div class="works-list">
+            <ul></ul>
+         </div>
+      </div>
    </main>
+   <button id="add-work-btn">+</button>
 </body>
 </html>
