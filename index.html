@@ -12,6 +12,16 @@
    <title>To do list</title>
 </head>
 <body>
+   <template id="new work">
+      <li>
+         <h3 class="work-name">Some undone work</h3>
+         <div class="work-info">
+            <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
+            <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+            <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
+         </div>
+      </li>
+   </template>
    <header id="page-title">
       <h1>to do list</h1>
       <p>don't forget anything!</p>
@@ -24,7 +34,7 @@
          <div class="works-list">
             <ul id="works-undone">
                <li>
-                  <h3 class="work-name">Work title</h3>
+                  <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
@@ -40,7 +50,16 @@
             <h2>Done</h2>
          </div>
          <div class="works-list">
-            <ul id="works-done"></ul>
+            <ul id="works-done">
+               <li>
+                  <h3 class="work-name">Some done work</h3>
+                  <div class="work-info">
+                     <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
+                     <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
+                  </div>
+               </li>
+            </ul>
          </div>
          <!-- <div class="stats-container"></div> -->
       </div>
