@@ -114,6 +114,40 @@ body {
    display: flex;
    justify-content: space-evenly;
    font-size: .6rem;
+   cursor: default;
+}
+
+.spec-info {
+   position: relative;
+}
+
+.spec-info::after {
+   display: none;
+   position: absolute;
+   text-align: center;
+   background-color: var(--b-color);
+   color: white;
+   border: 1px solid #999;
+   border-radius: 5px;
+}
+
+.spec-info:hover::after {
+   display: block;
+}
+
+.added-info::after {
+   content: "Task added date";
+   width: 150%;
+}
+
+.deadline-info::after {
+   content: "Deadline";
+   width: 100%;
+}
+
+.priority-info::after {
+   content: "Priority";
+   width: 250%;
 }
 
 /* .stats-container {
