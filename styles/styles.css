@@ -24,6 +24,7 @@ body {
    color: var(--main-color);
    height: 100vh;
    margin: 0;
+   position: relative;
 }
 
 body.non-scroll {
@@ -79,11 +80,12 @@ body.non-scroll {
    position: absolute;
    top: 0;
    left: 0;
-   background-color: red;
+   background-color: var(--c-color);
    margin: 0;
    padding: 0;
    z-index: -9999;
    visibility: hidden;
+   opacity: .8;
 }
 
 #new-work-container.visible {
