@@ -80,17 +80,26 @@ body.non-scroll {
    position: absolute;
    top: 0;
    left: 0;
-   background-color: var(--c-color);
+   background-color: rgba(64,64,64,.95);
    margin: 0;
    padding: 0;
    z-index: -9999;
    visibility: hidden;
-   opacity: .8;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 #new-work-container.visible {
    visibility: visible;
    z-index: 9999;
+}
+
+#new-work-form-container {
+   width: 85%;
+   height: 80%;
+   background-color: white;
+   border-radius: 5px;
 }
 
 #main-container {
