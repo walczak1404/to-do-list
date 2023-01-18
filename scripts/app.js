@@ -1,6 +1,9 @@
 const newTaskBtn = document.querySelector("#add-new-work-btn");
 const newTaskContainer = document.querySelector("#new-work-container");
 const closeNewTask = document.querySelector("#close-new-work");
+const prioContainer = document.querySelector("#prio-container");
+
+let currentPriority = null;
 
 newTaskBtn.addEventListener("click", () => {
    newTaskContainer.classList.add("visible");
@@ -19,3 +22,11 @@ function closePopUp(event) {
       document.body.classList.remove("non-scroll");
    }
 }
+
+prioContainer.addEventListener("click", event => {
+   if(event.target.classList.contains("prio-number")) {
+      event.target.classList.add("selected");
+      if(currentPriority) currentPriority.classList.remove("selected");
+      currentPriority = event.target;
+   }
+});
