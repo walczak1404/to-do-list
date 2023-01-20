@@ -51,7 +51,6 @@
 #new-work-form {
    display: flex;
    flex-direction: column;
-   justify-content: space-evenly;
    align-items: stretch;
 }
 
@@ -83,4 +82,22 @@
 
 .prio-number.selected {
    background-color: var(--a-color);
+}
+
+#submit-new-work {
+   margin: 20px 40px 0 40px;
+   flex-basis: 30px;
+   border: none;
+   border-radius: 5px;
+   background-color: rgb(47, 129, 44);
+   color: white;
+   font: inherit;
+}
+
+#submit-new-work:hover {
+   background-color: rgb(30, 112, 27);
+}
+
+#submit-new-work:active {
+   background-color: rgb(13, 95, 10);
 }
