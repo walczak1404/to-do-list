@@ -1,0 +1,32 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   --a-color: #bfbfbf;
+   --b-color: #808080;
+   --c-color: #404040;
+   --d-color: #e6e6e6;
+
+   --main-color: var(--b-color);
+   --containers-bgc: var(--a-color);
+   --list-items-bgc: var(--d-color);
+}
+
+html {
+   font: 20px 'Roboto', arial, sans-serif;
+}
+
+body {
+   background-color: white;
+   color: var(--main-color);
+   height: 100vh;
+   margin: 0;
+   position: relative;
+}
+
+body.non-scroll {
+   overflow: hidden;
+}
