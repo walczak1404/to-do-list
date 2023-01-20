@@ -5,9 +5,21 @@ const prioContainer = document.querySelector("#prio-container");
 
 let currentPriority = null;
 
+//event listeners
+
 newTaskBtn.addEventListener("click", () => {
    newTaskContainer.classList.add("visible");
    document.body.classList.add("non-scroll");
+});
+
+// newTaskBtn.click();
+
+prioContainer.addEventListener("click", event => {
+   if(event.target.classList.contains("prio-number") && event.target !== currentPriority) {
+      event.target.classList.add("selected");
+      if(currentPriority) currentPriority.classList.remove("selected");
+      currentPriority = event.target;
+   }
 });
 
 newTaskContainer.addEventListener("click", closePopUp);
@@ -22,11 +34,3 @@ function closePopUp(event) {
       document.body.classList.remove("non-scroll");
    }
 }
-
-prioContainer.addEventListener("click", event => {
-   if(event.target.classList.contains("prio-number")) {
-      event.target.classList.add("selected");
-      if(currentPriority) currentPriority.classList.remove("selected");
-      currentPriority = event.target;
-   }
-});

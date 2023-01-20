@@ -17,9 +17,10 @@
       <li draggable="true">
          <h3 class="work-name">Some undone work</h3>
          <div class="work-info">
-            <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
-            <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
-            <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
+            <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i></p>
+            <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i></p>
+            <p class="time-info spec-info"><i class="fa-solid fa-clock"></i></p>
+            <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i></p>
          </div>
       </li>
    </template>
@@ -35,9 +36,9 @@
          <div id="close-new-work">X</div>
          <h3>Create new task</h3>
          <form id="new-work-form">
-            <label>Task name: <input type="text"></label>
-            <label>Task 2name: <input type="text"></label>
-            <label>Deadline: <input type="date"></label>
+            <label>Task name <input type="text"></label>
+            <label>Expected time needed<input type="time"></label>
+            <label>Deadline<input type="date"></label>
             <label>
                Priority:
                <div id="prio-container">
@@ -68,6 +69,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -76,6 +78,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -84,6 +87,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -92,6 +96,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -100,6 +105,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -108,6 +114,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -116,6 +123,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -124,6 +132,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -132,6 +141,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -140,6 +150,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -148,6 +159,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -156,6 +168,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -164,6 +177,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -172,6 +186,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
@@ -180,6 +195,7 @@
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
                      <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i> 01-16-2023</p>
+                     <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
