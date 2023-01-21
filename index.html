@@ -18,7 +18,7 @@
    <title>To do list</title>
 </head>
 <body>
-   <template id="new work">
+   <template id="new-work">
       <li draggable="true">
          <h3 class="work-name">Some undone work</h3>
          <div class="work-info">
@@ -42,12 +42,12 @@
          <div id="new-work-form-container">
             <h3>Create new task</h3>
             <form id="new-work-form">
-               <label>Task name <input type="text"></label>
-               <label>Expected time needed<input type="time"></label>
-               <label>Deadline<input type="date"></label>
+               <label>Task name <input type="text" name="name"></label>
+               <label>Expected time needed<input type="time" name="time"></label>
+               <label>Deadline<input type="date" name="deadline"></label>
                <label>
                   Priority:
-                  <div id="prio-container">
+                  <div id="prio-container" name="priority">
                      <div class="prio-number" id="prio1">1</div>
                      <div class="prio-number" id="prio2">2</div>
                      <div class="prio-number" id="prio3">3</div>

@@ -1,17 +1,40 @@
-const prioContainer = document.querySelector("#prio-container");
-const submitNewTask = document.getElementById("submit-new-work");
-
-let currentPriority = null;
-
-prioContainer.addEventListener("click", event => {
-   if(event.target.classList.contains("prio-number") && event.target !== currentPriority) {
-      event.target.classList.add("selected");
-      if(currentPriority) currentPriority.classList.remove("selected");
-      currentPriority = event.target;
+class TaskObject {
+   constructor(name, time, deadline, priority) {
+      this.name = name;
+      this.time = time;
+      this.deadline = deadline;
+      this.priority = priority;
    }
-});
+}
 
-submitNewTask.addEventListener("click", event => {
-   event.preventDefault();
-   closePopUp(event);
-});
+class TaskList {
+   constructor() {
+      this.list = [];
+   }
+
+   add(task) {
+      this.list.push(task);
+   }
+
+   remove(task) {
+      const idx = this.list.findIndex(el => el.name === task.name);
+      this.list.splice(idx,1);
+   }
+}
+
+class App {
+   static init() {
+      const newTaskForm = document.getElementById("new-work-form");
+      const newTaskTemplate = document.importNode(document.querySelector("#new-work").content, true);
+      
+      newTaskForm.addEventListener("submit", function(event) {
+         event.preventDefault();
+      
+         console.log(this.deadline.value);
+      
+         closePopUp(event);
+      });
+   }
+}
+
+App.init();
