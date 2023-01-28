@@ -7,8 +7,7 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <script src="https://kit.fontawesome.com/fb3001e2e6.js" crossorigin="anonymous"></script>
-   <script src="scripts/new-work-popup.js" defer></script>
-   <script src="scripts/add-work.js" defer></script>
+   <script src="scripts/app.js" type="module"></script>
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="styles/keyframes.css">
    <link rel="stylesheet" href="styles/fundamental.css">
@@ -20,7 +19,7 @@
 </head>
 <body>
    <template id="new-work">
-      <li draggable="true">
+      <li draggable="true" class="work">
          <h3 class="work-name">Some undone work</h3>
          <div class="work-info">
             <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i></p>
@@ -73,7 +72,7 @@
          </div>
          <div class="works-list">
             <ul>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work with long name Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab possimus nam debitis architecto alias dolor!</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -82,7 +81,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -91,7 +90,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -100,7 +99,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -109,7 +108,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -118,7 +117,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -127,7 +126,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -136,7 +135,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -145,7 +144,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -154,7 +153,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -163,7 +162,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -172,7 +171,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -181,7 +180,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -190,7 +189,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -199,7 +198,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true">
+               <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>

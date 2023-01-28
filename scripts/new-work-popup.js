@@ -1,34 +1,42 @@
-const newTaskBtn = document.querySelector("#add-new-work-btn");
-const prioContainer = document.querySelector("#prio-container");
-const newTaskContainer = document.querySelector("#new-work-container");
-const closeNewTask = document.querySelector("#close-new-work");
+export const NewTaskPopUp = {
+   newTaskContainer: document.querySelector("#new-work-container"),
+   currentPriority: null,
 
-let currentPriority = null;
+   addPopUpHandler() {
+      const newTaskBtn = document.querySelector("#add-new-work-btn");
+      const closeNewTaskBtn = document.querySelector("#close-new-work");
 
-newTaskBtn.addEventListener("click", () => {
-   newTaskContainer.classList.add("visible");
-   document.body.classList.add("non-scroll");
-});
+      newTaskBtn.addEventListener("click", () => {
+         this.newTaskContainer.classList.add("visible");
+         document.body.classList.add("non-scroll");
+      });
 
-prioContainer.addEventListener("click", event => {
-   if(event.target.classList.contains("prio-number") && event.target !== currentPriority) {
-      event.target.classList.add("selected");
-      if(currentPriority) currentPriority.classList.remove("selected");
-      currentPriority = event.target;
-   }
-});
+      this.PriorityHandler();
 
-newTaskContainer.addEventListener("click", closePopUp);
+      this.newTaskContainer.addEventListener("click", this.closePopUpHandler.bind(this));
+      closeNewTaskBtn.addEventListener("click", this.closePopUpHandler.bind(this));
+   },
 
-closeNewTask.addEventListener("click", closePopUp);
+   PriorityHandler() {
+      const prioContainer =  document.querySelector("#prio-container");
 
-function closePopUp(event) {
-   if(event.target === event.currentTarget) {
-      newTaskContainer.classList.remove("visible");
-      document.body.classList.remove("non-scroll");
-      if(currentPriority) {
-         document.querySelector(".selected").classList.remove("selected");
-         currentPriority = null;
+      prioContainer.addEventListener("click", event => {
+         if(event.target.classList.contains("prio-number") && event.target !== this.currentPriority) {
+            event.target.classList.add("selected");
+            if(this.currentPriority) this.currentPriority.classList.remove("selected");
+            this.currentPriority = event.target;
+         }
+      });
+   },
+
+   closePopUpHandler(event) {
+      if(event.target === event.currentTarget) {
+         this.newTaskContainer.classList.remove("visible");
+         document.body.classList.remove("non-scroll");
+         if(this.currentPriority) {
+            document.querySelector(".selected").classList.remove("selected");
+            this.currentPriority = null;
+         }
       }
    }
-}
+};

@@ -1,13 +1,13 @@
-class TaskObject {
-   constructor(name, time, deadline, priority) {
+export class TaskObject {
+   constructor(name, deadline, time, priority) {
       this.name = name;
-      this.time = time;
       this.deadline = deadline;
+      this.time = time;
       this.priority = priority;
    }
 }
 
-class TaskList {
+export class TaskList {
    constructor() {
       this.list = [];
    }
@@ -21,20 +21,3 @@ class TaskList {
       this.list.splice(idx,1);
    }
 }
-
-class App {
-   static init() {
-      const newTaskForm = document.getElementById("new-work-form");
-      const newTaskTemplate = document.importNode(document.querySelector("#new-work").content, true);
-      
-      newTaskForm.addEventListener("submit", function(event) {
-         event.preventDefault();
-      
-         console.log(this.deadline.value);
-      
-         closePopUp(event);
-      });
-   }
-}
-
-App.init();
