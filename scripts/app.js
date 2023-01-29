@@ -1,16 +1,14 @@
 import { NewTaskPopUp } from "./new-work-popup.js";
 import * as Tasks from "./works.js";
-import * as TaskForm from "./work-form.js";
+import { WorkForm } from "./work-form.js";
 
 class App {
    static init() {
       NewTaskPopUp.addPopUpHandler();
-   }
 
-   static submitTaskHandler() {
-      const newTaskForm = document.querySelector("#new-work-form");
+      this.tasksList = new Tasks.TasksList();
 
-      newTaskForm.addEventListener("submit", )
+      WorkForm.addListener();
    }
 }
 

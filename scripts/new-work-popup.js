@@ -27,6 +27,7 @@ export const NewTaskPopUp = {
             event.target.classList.add("selected");
             if(this.currentPriority) this.currentPriority.classList.remove("selected");
             this.currentPriority = event.target;
+            document.getElementById("priority-value-storage").setAttribute("value", this.currentPriority.textContent);
          }
       });
    },
