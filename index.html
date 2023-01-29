@@ -18,9 +18,9 @@
    <title>To do list</title>
 </head>
 <body>
-   <template id="new-work">
+   <template id="new-work-template">
       <li draggable="true" class="work">
-         <h3 class="work-name">Some undone work</h3>
+         <h3 class="work-name"></h3>
          <div class="work-info">
             <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i></p>
             <p class="deadline-info spec-info"><i class="fa-solid fa-calendar-xmark"></i></p>
@@ -42,9 +42,9 @@
          <div id="new-work-form-container">
             <h3>Create new task</h3>
             <form id="new-work-form">
-               <label>Task name <input type="text" name="name"></label>
-               <label>Expected time needed<input type="time" name="time"></label>
-               <label>Deadline<input type="date" name="deadline"></label>
+               <label>Task name <input type="text" name="name" required></label>
+               <label>Expected time needed<input type="time" name="time" required></label>
+               <label>Deadline<input type="date" name="deadline" required></label>
                <label>
                   Priority:
                   <div id="prio-container" name="priority">
@@ -90,7 +90,7 @@
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
                </li>
-               <li draggable="true" class="work">
+               <!-- <li draggable="true" class="work">
                   <h3 class="work-name">Some undone work</h3>
                   <div class="work-info">
                      <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> 01-14-2023</p>
@@ -206,7 +206,7 @@
                      <p class="time-info spec-info"><i class="fa-solid fa-clock"></i> 2h30min</p>
                      <p class="priority-info spec-info"><i class="fa-solid fa-circle-exclamation"></i> 7</p>
                   </div>
-               </li>
+               </li> -->
             </ul>
          </div>
          <!-- <div class="stats-container"></div> -->
