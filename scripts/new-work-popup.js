@@ -5,6 +5,7 @@ export const NewTaskPopUp = {
    addPopUpHandler() {
       const newTaskBtn = document.querySelector("#add-new-work-btn");
       const closeNewTaskBtn = document.querySelector("#close-new-work");
+      const taskForm = document.querySelector("#new-work-form");
 
       newTaskBtn.addEventListener("click", () => {
          this.newTaskContainer.classList.add("visible");
@@ -15,6 +16,7 @@ export const NewTaskPopUp = {
 
       this.newTaskContainer.addEventListener("click", this.closePopUpHandler.bind(this));
       closeNewTaskBtn.addEventListener("click", this.closePopUpHandler.bind(this));
+      taskForm.addEventListener("submit", this.closePopUpHandler.bind(this));
    },
 
    PriorityHandler() {

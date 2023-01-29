@@ -1,5 +1,6 @@
 import { NewTaskPopUp } from "./new-work-popup.js";
-import * as AddWork from "./add-work.js";
+import * as Tasks from "./works.js";
+import * as TaskForm from "./work-form.js";
 
 class App {
    static init() {
