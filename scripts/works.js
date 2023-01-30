@@ -6,7 +6,6 @@ export class Task {
       this.time = time;
       this.priority = priority;
       this.taskEl = new TaskElement(name, deadline, time, priority, this.addedDate);
-      console.log(this);
    }
 
    static convertToTask(taskLookingObj) {
