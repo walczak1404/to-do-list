@@ -6,7 +6,13 @@ export class Task {
       this.time = time;
       this.priority = priority;
       this.taskEl = new TaskElement(name, deadline, time, priority, this.addedDate);
+      console.log(this);
    }
+
+   static convertToTask(taskLookingObj) {
+      const t = new Task(taskLookingObj.name, taskLookingObj.deadline, taskLookingObj.time, taskLookingObj.priority);
+      return t;
+   }4
 }
 
 export class TaskElement {
@@ -46,7 +52,11 @@ export class TasksList {
    }
 
    static importFromStorage(task) {
-      this.list.push(task);
-      task.taskEl.addObj(this.sortType);
+      const convertedTask = Task.convertToTask(task);
+      this.list.unshift(convertedTask);
+      
+      
+      const tasksListEl = document.querySelector(".works-list > ul");
+      tasksListEl.append(convertedTask.taskEl.taskTemplate);
    }
 }

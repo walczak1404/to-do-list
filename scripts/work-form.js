@@ -7,11 +7,13 @@ export class WorkForm {
 
       if(Date.parse(this.formEl.deadline.value) < new Date().getTime()) {
          alert("Deadline has passed!!!");
+         event.stopPropagation();
          return;
       }
 
       if(!this.formEl.priority.value) {
          alert("Choose priority!!!");
+         event.stopPropagation();
          return;
       }
 
@@ -27,6 +29,6 @@ export class WorkForm {
    }
 
    static addListener() {
-      this.formEl.addEventListener("submit", this.submitTask.bind(this));
+      this.formEl.addEventListener("submit", this.submitTask.bind(this), true);
    }
 }
