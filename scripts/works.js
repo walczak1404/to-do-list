@@ -1,7 +1,7 @@
 export class Task {
-   constructor(name, deadline, time, priority) {
+   constructor(name, deadline, time, priority, addDate = new Date()) {
       this.name = name;
-      this.addedDate = new Date();
+      this.addedDate = addDate;
       this.deadline = deadline;
       this.time = time;
       this.priority = priority;
@@ -9,7 +9,7 @@ export class Task {
    }
 
    static convertToTask(taskLookingObj) {
-      const t = new Task(taskLookingObj.name, taskLookingObj.deadline, taskLookingObj.time, taskLookingObj.priority);
+      const t = new Task(taskLookingObj.name, taskLookingObj.deadline, taskLookingObj.time, taskLookingObj.priority, new Date(taskLookingObj.addedDate));
       return t;
    }4
 }
