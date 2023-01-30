@@ -6,10 +6,15 @@ class App {
    static init() {
       NewTaskPopUp.addPopUpHandler();
 
-      this.tasksList = new Tasks.TasksList();
-
       WorkForm.addListener();
+   }
+
+   static loadStorage() {
+      Object.keys(localStorage).forEach(key => {
+         Tasks.TasksList.importFromStorage(JSON.parse(localStorage.getItem(key)));
+      })
    }
 }
 
 App.init();
+App.loadStorage();

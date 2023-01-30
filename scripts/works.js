@@ -11,34 +11,42 @@ export class Task {
 
 export class TaskElement {
    constructor(name, deadline, time, priority, addedDate) {
-      const taskTemplate = document.importNode(document.querySelector("#new-work-template").content, true);
+      this.taskTemplate = document.importNode(document.querySelector("#new-work-template").content, true);
 
-      taskTemplate.querySelector(".work-name").textContent = name;
-      taskTemplate.querySelector(".added-info").textContent = `${addedDate.getDate()}-${this.addedDate.getMonth()}-${this.addedDate.getFullYear()}`;
-      taskTemplate.querySelector(".deadline-info").textContent = deadline;
-      taskTemplate.querySelector(".time-info").textContent = time;
-      taskTemplate.querySelector(".priority-info").textContent = priority;
+      const day = addedDate.getDate() < 10 ? `0${addedDate.getDate()}` : `${addedDate.getDate()}`;
+      const month = addedDate.getMonth()+1 < 10 ? `0${addedDate.getMonth()+1}` : `${addedDate.getMonth()+1}`;
+
+      this.taskTemplate.querySelector(".work-name").innerHTML += name;
+      this.taskTemplate.querySelector(".added-info").innerHTML += `${addedDate.getFullYear()}-${month}-${day}`;
+      this.taskTemplate.querySelector(".deadline-info").innerHTML += deadline;
+      this.taskTemplate.querySelector(".time-info").innerHTML += time;
+      this.taskTemplate.querySelector(".priority-info").innerHTML += priority;
    }
 
-   loadObj(sortType) {
+   addObj(sortType) {
       if(sortType === "ADDED-DATE") {
-         const tasksListEl = document.querySelector(".works-list");
-         tasksListEl.append(taskTemplate);
+         const tasksListEl = document.querySelector(".works-list > ul");
+         tasksListEl.append(this.taskTemplate);
       }
    }
 }
 
 export class TasksList {
-   constructor() {
-      this.list = [];
-      this.sortType = "ADDED-DATE";
-   }
+   static list = [];
+   static sortType = "ADDED-DATE";
 
-   addTask(name, deadline, time, priority) {
+   static addTask(name, deadline, time, priority) {
       const newTask = new Task(name, deadline, time, priority);
       if (this.sortType === "ADDED-DATE") {
          this.list.push(newTask);
+         localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
       }
-      newTask.taskEl.loadObj(this.sortType);
+      newTask.taskEl.addObj(this.sortType);
+      console.log(this.list);
+   }
+
+   static importFromStorage(task) {
+      this.list.push(task);
+      task.taskEl.addObj(this.sortType);
    }
 }

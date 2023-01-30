@@ -10,7 +10,17 @@ export class WorkForm {
          return;
       }
 
-      console.log(this.formEl.priority);
+      if(!this.formEl.priority.value) {
+         alert("Choose priority!!!");
+         return;
+      }
+
+      Tasks.TasksList.addTask(
+         this.formEl.name.value,
+         this.formEl.deadline.value,
+         this.formEl.time.value,
+         this.formEl.priority.value
+      );
 
       this.formEl.reset();
       this.formEl.priority.setAttribute("value", "");
