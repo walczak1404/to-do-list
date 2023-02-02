@@ -28,8 +28,8 @@ export class TaskElement {
    }
 
    addObj(sortType) {
+      const tasksListEl = document.querySelector(".works-list > ul");
       if(sortType === "ADDED-DATE") {
-         const tasksListEl = document.querySelector(".works-list > ul");
          tasksListEl.append(this.taskTemplate);
       }
    }
@@ -37,16 +37,17 @@ export class TaskElement {
 
 export class TasksList {
    static list = [];
-   static sortType = "ADDED-DATE";
+   static sortType = "DEADLINE";
 
    static addTask(name, deadline, time, priority) {
       const newTask = new Task(name, deadline, time, priority);
       if (this.sortType === "ADDED-DATE") {
          this.list.push(newTask);
-         localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
       } else if(this.sortType === "DEADLINE") {
-         
+         const idx = this.list.findIndex(t => new Date(t.deadline) >= newTask.deadline)
+         this.list.splice(idx, 0, newTask);
       }
+      localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
       newTask.taskEl.addObj(this.sortType);
       console.log(this.list);
    }
