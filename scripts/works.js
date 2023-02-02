@@ -9,9 +9,8 @@ export class Task {
    }
 
    static convertToTask(taskLookingObj) {
-      const t = new Task(taskLookingObj.name, taskLookingObj.deadline, taskLookingObj.time, taskLookingObj.priority, new Date(taskLookingObj.addedDate));
-      return t;
-   }4
+      return new Task(taskLookingObj.name, taskLookingObj.deadline, taskLookingObj.time, taskLookingObj.priority, new Date(taskLookingObj.addedDate));
+   }
 }
 
 export class TaskElement {
@@ -45,17 +44,48 @@ export class TasksList {
       if (this.sortType === "ADDED-DATE") {
          this.list.push(newTask);
          localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
+      } else if(this.sortType === "DEADLINE") {
+         
       }
       newTask.taskEl.addObj(this.sortType);
       console.log(this.list);
    }
 
-   static importFromStorage(task) {
-      const convertedTask = Task.convertToTask(task);
-      this.list.unshift(convertedTask);
+   static importFromStorage() {
+      Object.keys(localStorage).forEach(key => {
+         const task = Task.convertToTask(JSON.parse(localStorage.getItem(key)));
+         this.list.push(task);
+      });
       
-      
+      this.sort(this.sortType);
+      this.loadList();
+      // const tasksListEl = document.querySelector(".works-list > ul");
+      // tasksListEl.append(convertedTask.taskEl.taskTemplate);
+   }
+
+   static loadList() {
       const tasksListEl = document.querySelector(".works-list > ul");
-      tasksListEl.append(convertedTask.taskEl.taskTemplate);
+      for(const task of this.list) {
+         tasksListEl.append(task.taskEl.taskTemplate);
+      }
+   }
+
+   static sort(sortType) {
+      let cb;
+      if(sortType==="ADDED-DATE") {
+         cb = (t1,t2) => t1.addedDate - t2.addedDate;
+      } else if(sortType==="DEADLINE") {
+         cb = (t1,t2) => new Date(t1.deadline) - new Date(t2.deadline);
+      } else if(sortType==="TIME") {
+         cb = (t1,t2) => new Date("01.01.2022 " + t1.time) - new Date("01.01.2022 " + t2.time);
+      } else if(sortType==="PRIORITY") {
+         cb = (t1,t2) => t1.priority - t2.priority;
+      } else {
+         console.log("Wrong sortType");
+         return;
+      }
+      this.list.sort(cb)
+      this.sortType = sortType;
+      console.log(this.list);
    }
 }
