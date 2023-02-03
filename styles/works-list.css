@@ -23,10 +23,38 @@
    justify-content: center;
    background-color: white;
    border-radius: 10px 10px 0 0;
+   position: relative;
 }
 
 .works-header > h2 {
    font-weight: 400;
+}
+
+.fa-sort {
+   position: absolute;
+   right: 3%;
+   transition: .3s;
+}
+
+.fa-sort:hover {
+   transform: scale(1.2);
+}
+
+#sort-container {
+   position: absolute;
+   left: 82%;
+   top: 65%;
+   width: 200px;
+   border: 1px solid black;
+   display: flex;
+   flex-direction: column;
+   padding: 10px;
+   background-color: inherit;
+}
+
+#sort-container > label {
+   display: flex;
+   justify-content: space-between;
 }
 
 .works-list {

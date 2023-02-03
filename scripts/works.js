@@ -17,20 +17,22 @@ export class TaskElement {
    constructor(name, deadline, time, priority, addedDate) {
       this.taskTemplate = document.importNode(document.querySelector("#new-work-template").content, true);
 
-      const day = addedDate.getDate() < 10 ? `0${addedDate.getDate()}` : `${addedDate.getDate()}`;
-      const month = addedDate.getMonth()+1 < 10 ? `0${addedDate.getMonth()+1}` : `${addedDate.getMonth()+1}`;
+      const addedDay = addedDate.getDate() < 10 ? `0${addedDate.getDate()}` : `${addedDate.getDate()}`;
+      const addedMonth = addedDate.getMonth()+1 < 10 ? `0${addedDate.getMonth()+1}` : `${addedDate.getMonth()+1}`;
 
       this.taskTemplate.querySelector(".work-name").innerHTML += name;
-      this.taskTemplate.querySelector(".added-info").innerHTML += `${addedDate.getFullYear()}-${month}-${day}`;
+      this.taskTemplate.querySelector(".added-info").innerHTML += `${addedDate.getFullYear()}-${addedMonth}-${addedDay}`;
       this.taskTemplate.querySelector(".deadline-info").innerHTML += deadline;
       this.taskTemplate.querySelector(".time-info").innerHTML += time;
       this.taskTemplate.querySelector(".priority-info").innerHTML += priority;
    }
 
-   addObj(sortType) {
+   addObj(sortType, idx = 0) {
       const tasksListEl = document.querySelector(".works-list > ul");
       if(sortType === "ADDED-DATE") {
          tasksListEl.append(this.taskTemplate);
+      } else if(sortType ==="DEADLINE") {
+         
       }
    }
 }
@@ -44,11 +46,11 @@ export class TasksList {
       if (this.sortType === "ADDED-DATE") {
          this.list.push(newTask);
       } else if(this.sortType === "DEADLINE") {
-         const idx = this.list.findIndex(t => new Date(t.deadline) >= newTask.deadline)
+         const idx = this.list.findIndex(t => Date.parse(t.deadline) >= new Date(newTask.deadline));
          this.list.splice(idx, 0, newTask);
       }
       localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
-      newTask.taskEl.addObj(this.sortType);
+      newTask.taskEl.addObj(this.sortType, idx);
       console.log(this.list);
    }
 
