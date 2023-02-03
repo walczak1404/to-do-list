@@ -25,6 +25,7 @@ body {
    color: var(--main-color);
    height: 100vh;
    position: relative;
+   user-select: none;
 }
 
 body.non-scroll {

@@ -4,12 +4,30 @@ import { WorkForm } from "./work-form.js";
 
 class App {
    static init() {
+
       NewTaskPopUp.addPopUpHandler();
 
       WorkForm.addListener();
 
       Tasks.TasksList.importFromStorage();
+
+      this.addSortListeners();
+
+      
    }
+
+   static addSortListeners() {
+      const sortBtn = document.querySelector(".fa-sort");
+      const sortContainer = document.querySelector("#sort-container");
+      sortBtn.addEventListener("click", () => {
+         sortContainer.classList.toggle("visible");
+      });
+
+      sortContainer.addEventListener("click", event => {
+         console.log("xd");
+         event.stopPropagation();
+      }, false);
+   }   
 }
 
 App.init();
