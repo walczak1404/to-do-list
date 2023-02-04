@@ -24,9 +24,11 @@ class App {
       });
 
       sortContainer.addEventListener("click", event => {
-         console.log("xd");
-         event.stopPropagation();
-      }, false);
+         if(event.target.type === "radio") {
+            Tasks.TasksList.sort(event.target.value);
+            console.log(Tasks.TasksList.sortType);
+         }
+      });
    }   
 }
 

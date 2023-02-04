@@ -39,7 +39,7 @@ export class TaskElement {
 
 export class TasksList {
    static list = [];
-   static sortType = "DEADLINE";
+   static sortType = "ADDED-DATE";
 
    static addTask(name, deadline, time, priority) {
       const newTask = new Task(name, deadline, time, priority);
@@ -50,7 +50,7 @@ export class TasksList {
          this.list.splice(idx, 0, newTask);
       }
       localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
-      newTask.taskEl.addObj(this.sortType, idx);
+      newTask.taskEl.addObj(this.sortType);
       console.log(this.list);
    }
 
@@ -82,7 +82,7 @@ export class TasksList {
       } else if(sortType==="TIME") {
          cb = (t1,t2) => new Date("01.01.2022 " + t1.time) - new Date("01.01.2022 " + t2.time);
       } else if(sortType==="PRIORITY") {
-         cb = (t1,t2) => t1.priority - t2.priority;
+         cb = (t1,t2) => t2.priority - t1.priority;
       } else {
          console.log("Wrong sortType");
          return;
