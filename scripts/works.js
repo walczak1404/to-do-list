@@ -56,7 +56,6 @@ export class TasksList {
       Object.keys(localStorage).forEach(key => {
          const task = Task.convertToTask(JSON.parse(localStorage.getItem(key)));
          this.list.push(task);
-         console.log(task.taskEl.taskTemplate);
       });
       
       this.sort(this.sortType);
