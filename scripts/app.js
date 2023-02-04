@@ -3,44 +3,54 @@ import * as Tasks from "./works.js";
 import { WorkForm } from "./work-form.js";
 
 class App {
-   static init() {
+	static init() {
+		NewTaskPopUp.addPopUpHandler();
 
-      NewTaskPopUp.addPopUpHandler();
+		WorkForm.addListener();
 
-      WorkForm.addListener();
+		Tasks.TasksList.importFromStorage();
 
-      Tasks.TasksList.importFromStorage();
+		this.addSortListeners();
+	}
 
-      this.addSortListeners();
+	static addSortListeners() {
+		const sortBtn = document.querySelector(".fa-sort");
+		const sortContainer = document.querySelector(".sort-container");
+		const sortOrderBtn = document.querySelector(".fa-arrow-down");
 
-      
-   }
+		sortBtn.addEventListener("click", () => {
+			sortContainer.classList.toggle("visible");
+		});
 
-   static addSortListeners() {
-      const sortBtn = document.querySelector(".fa-sort");
-      const sortContainer = document.querySelector(".sort-container");
-      const sortOrderBtn = document.querySelector(".fa-arrow-down");
+		document.body.addEventListener("click", event => {
+			if (
+				event.target !== sortContainer &&
+				event.target.type !== "radio" &&
+				event.target.closest("div") !== sortContainer &&
+				event.target !== sortBtn
+			)
+				sortContainer.classList.remove("visible");
+		});
 
-      sortBtn.addEventListener("click", () => {
-         sortContainer.classList.toggle("visible");
-      });
+		sortContainer.addEventListener("click", event => {
+			if (event.target.type === "radio") {
+				Tasks.TasksList.sort(event.target.value);
+			}
+		});
 
-      sortContainer.addEventListener("click", event => {
-         if(event.target.type === "radio") {
-            Tasks.TasksList.sort(event.target.value);
-         }
-      });
+		sortOrderBtn.addEventListener("click", event => {
+			event.target.classList.toggle("fa-arrow-down");
+			event.target.classList.toggle("fa-arrow-up");
 
-      sortOrderBtn.addEventListener("click", event => {
-         event.target.classList.toggle("fa-arrow-down");
-         event.target.classList.toggle("fa-arrow-up");
+			Tasks.TasksList.sortOrder =
+				Tasks.TasksList.sortOrder === "DOWN"
+					? (Tasks.TasksList.sortOrder = "UP")
+					: (Tasks.TasksList.sortOrder = "DOWN");
 
-         Tasks.TasksList.sortOrder = Tasks.TasksList.sortOrder==="DOWN" ? Tasks.TasksList.sortOrder = "UP" : Tasks.TasksList.sortOrder = "DOWN";
-
-         Tasks.TasksList.list.reverse();
-         Tasks.TasksList.loadList();
-      });
-   }   
+			Tasks.TasksList.list.reverse();
+			Tasks.TasksList.loadList();
+		});
+	}
 }
 
 App.init();

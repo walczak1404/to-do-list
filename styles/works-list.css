@@ -179,7 +179,7 @@
       display: block;
    }
 
-   #sort-container > label:hover {
+   .sort-container > label:hover {
       background-color: var(--a-color);
    }
 }
