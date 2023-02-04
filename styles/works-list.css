@@ -30,13 +30,21 @@
    font-weight: 400;
 }
 
-.fa-sort {
+#sorting-btns {
+   height: 100%;
+   width: 15%;
    position: absolute;
-   right: 3%;
+   right: 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.sort-icon {
    transition: .3s;
 }
 
-#sort-container {
+.sort-container {
    position: absolute;
    right: 0;
    top: 100%;
@@ -52,11 +60,11 @@
    z-index: 9999;
 }
 
-#sort-container.visible {
+.sort-container.visible {
    transform: scaleY(1);
 }
 
-#sort-container > label {
+.sort-container > label {
    display: flex;
    justify-content: space-between;
    padding: 10px;
@@ -66,8 +74,6 @@
 
 .sort-type {
    visibility: hidden;
-   /* background-image: url("https://w7.pngwing.com/pngs/697/297/png-transparent-checkbox-icon-checkbox-button-tick-box-angle-text-triangle-thumbnail.png"); */
-   accent-color: grey;
 }
 
 /* .sort-type:checked {
@@ -165,7 +171,7 @@
 
 /*hovers*/
 @media(hover: hover) {
-   .fa-sort:hover {
+   .sort-icon:hover {
       transform: scale(1.2);
    }
 

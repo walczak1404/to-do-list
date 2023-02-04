@@ -18,7 +18,9 @@ class App {
 
    static addSortListeners() {
       const sortBtn = document.querySelector(".fa-sort");
-      const sortContainer = document.querySelector("#sort-container");
+      const sortContainer = document.querySelector(".sort-container");
+      const sortOrderBtn = document.querySelector(".fa-arrow-down");
+
       sortBtn.addEventListener("click", () => {
          sortContainer.classList.toggle("visible");
       });
@@ -27,6 +29,16 @@ class App {
          if(event.target.type === "radio") {
             Tasks.TasksList.sort(event.target.value);
          }
+      });
+
+      sortOrderBtn.addEventListener("click", event => {
+         event.target.classList.toggle("fa-arrow-down");
+         event.target.classList.toggle("fa-arrow-up");
+
+         Tasks.TasksList.sortOrder = Tasks.TasksList.sortOrder==="DOWN" ? Tasks.TasksList.sortOrder = "UP" : Tasks.TasksList.sortOrder = "DOWN";
+
+         Tasks.TasksList.list.reverse();
+         Tasks.TasksList.loadList();
       });
    }   
 }
