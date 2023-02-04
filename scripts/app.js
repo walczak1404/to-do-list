@@ -26,7 +26,6 @@ class App {
       sortContainer.addEventListener("click", event => {
          if(event.target.type === "radio") {
             Tasks.TasksList.sort(event.target.value);
-            console.log(Tasks.TasksList.sortType);
          }
       });
    }   

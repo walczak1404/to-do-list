@@ -15,7 +15,7 @@ export class Task {
 
 export class TaskElement {
    constructor(name, deadline, time, priority, addedDate) {
-      this.taskTemplate = document.importNode(document.querySelector("#new-work-template").content, true);
+      this.taskTemplate = document.querySelector("#new-work-template").content.firstElementChild.cloneNode(true);
 
       const addedDay = addedDate.getDate() < 10 ? `0${addedDate.getDate()}` : `${addedDate.getDate()}`;
       const addedMonth = addedDate.getMonth()+1 < 10 ? `0${addedDate.getMonth()+1}` : `${addedDate.getMonth()+1}`;
@@ -31,8 +31,6 @@ export class TaskElement {
       const tasksListEl = document.querySelector(".works-list > ul");
       if(sortType === "ADDED-DATE") {
          tasksListEl.append(this.taskTemplate);
-      } else if(sortType ==="DEADLINE") {
-         
       }
    }
 }
@@ -58,16 +56,15 @@ export class TasksList {
       Object.keys(localStorage).forEach(key => {
          const task = Task.convertToTask(JSON.parse(localStorage.getItem(key)));
          this.list.push(task);
+         console.log(task.taskEl.taskTemplate);
       });
       
       this.sort(this.sortType);
-      this.loadList();
-      // const tasksListEl = document.querySelector(".works-list > ul");
-      // tasksListEl.append(convertedTask.taskEl.taskTemplate);
    }
 
    static loadList() {
       const tasksListEl = document.querySelector(".works-list > ul");
+      tasksListEl.innerHTML = "";
       for(const task of this.list) {
          tasksListEl.append(task.taskEl.taskTemplate);
       }
@@ -87,8 +84,9 @@ export class TasksList {
          console.log("Wrong sortType");
          return;
       }
-      this.list.sort(cb)
+      this.list.sort(cb);
       this.sortType = sortType;
-      console.log(this.list);
+
+      this.loadList();
    }
 }
