@@ -25,8 +25,6 @@ class App {
 		document.body.addEventListener("click", event => {
 			if (
 				event.target !== sortContainer &&
-				event.target.type !== "radio" &&
-				event.target.closest("div") !== sortContainer &&
 				event.target !== sortBtn
 			)
 				sortContainer.classList.remove("visible");
