@@ -52,3 +52,4 @@ class App {
 }
 
 App.init();
+// document.getElementById("priority-sort-option").click();
