@@ -31,6 +31,8 @@ export class TaskElement {
       const tasksListEl = document.querySelector(".works-list > ul");
       if(idx) {
          tasksListEl.querySelector(`li:nth-of-type(${idx})`).after(this.taskTemplate);
+      } else {
+         tasksListEl.prepend(this.taskTemplate);
       }
    }
 }
@@ -42,21 +44,34 @@ export class TasksList {
 
    static addTask(name, deadline, time, priority) {
       const newTask = new Task(name, deadline, time, priority);
-      let idx = this.list.length;
       let cb;
-      if(this.sortType === "DEADLINE") {
-         cb = t => Date.parse(t.deadline) >= new Date(newTask.deadline);
-      } else if(this.sortType === "TIME") {
-         cb = t => new Date("01.01.2022 " + t.time) >= new Date("01.01.2022 " + newTask.time);
-      } else if(this.sortType === "PRIORITY") {
-         cb = t => t.priority >= newTask.priority;
+      let idx;
+
+      if(this.sortOrder === "DOWN") {
+         idx = this.list.length;
+
+         if(this.sortType === "DEADLINE") {
+            cb = t => Date.parse(t.deadline) >= new Date(newTask.deadline);
+         } else if(this.sortType === "TIME") {
+            cb = t => new Date("01.01.2022 " + t.time) >= new Date("01.01.2022 " + newTask.time);
+         } else if(this.sortType === "PRIORITY") {
+            cb = t => t.priority >= newTask.priority;
+         }
+      } else {
+         if(this.sortType === "DEADLINE") {
+            cb = t => Date.parse(t.deadline) <= new Date(newTask.deadline);
+         } else if(this.sortType === "TIME") {
+            cb = t => new Date("01.01.2022 " + t.time) <= new Date("01.01.2022 " + newTask.time);
+         } else if(this.sortType === "PRIORITY") {
+            cb = t => t.priority <= newTask.priority;
+         }
       }
 
       if(cb) {
          idx = this.list.findIndex(cb);
       }
       this.list.splice(idx, 0, newTask);
-      localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
+      // localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
       newTask.taskEl.addObj(idx);
       console.log(this.list);
    }
