@@ -7,7 +7,7 @@ class App {
 		NewTaskPopUp.addPopUpHandler();
 
 		WorkForm.addListener();
-
+		Tasks.TasksList.addContextMenu();
 		Tasks.TasksList.importFromStorage();
 
 		this.addSortListeners();
@@ -52,4 +52,3 @@ class App {
 }
 
 App.init();
-// document.getElementById("priority-sort-option").click();

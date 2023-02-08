@@ -122,6 +122,10 @@
    background-color: var(--list-items-bgc);
 }
 
+.works-list > ul > li.phone-touch {
+   background-color: #d5d5d5;
+}
+
 .work-name {
    font-weight: 400;
    font-size: 1rem;
@@ -169,6 +173,45 @@
    width: 250%;
 }
 
+#work-context-menu {
+   position: absolute;
+   top: 10%;
+   left: 10%;
+   font-size: .6rem;
+   background-color: white;
+   width: 100px;
+   height: 40px;
+   border: 1px solid black;
+   display: none;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
+}
+
+#work-context-menu.visible {
+   display: flex;
+}
+
+#work-context-menu > p {
+   width: 100%;
+   flex-basis: 50%;
+   line-height: 19px;
+}
+
+#work-context-menu i {
+   box-sizing: content-box;
+   width: 20%;
+   padding-left: 5px;
+}
+
+#work-context-menu .fa-pen-to-square {
+   color: #dfca0f;
+}
+
+#work-context-menu .fa-trash {
+   color: rgb(187, 17, 17);
+}
+
 /*hovers*/
 @media(hover: hover) {
    .sort-icon:hover {
@@ -181,5 +224,9 @@
 
    .sort-container > label:hover {
       background-color: var(--a-color);
+   }
+
+   #work-context-menu > p:hover {
+      background-color: #eee;
    }
 }

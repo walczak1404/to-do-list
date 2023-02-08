@@ -71,7 +71,7 @@ export class TasksList {
          idx = this.list.findIndex(cb);
       }
       this.list.splice(idx, 0, newTask);
-      // localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
+      localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
       newTask.taskEl.addObj(idx);
       console.log(this.list);
    }
@@ -115,5 +115,36 @@ export class TasksList {
       }
 
       this.loadList();
+   }
+
+   static addContextMenu() {
+      const tasksListEl = document.querySelector(".works-list > ul");
+      const taskContextMenu = tasksListEl.parentElement.lastElementChild;
+
+      tasksListEl.addEventListener("touchstart", event => {
+         event.target.closest("li").classList.add("phone-touch");
+      });
+
+      tasksListEl.addEventListener("touchend", event => {
+         event.target.closest("li").classList.remove("phone-touch");
+      });
+
+      tasksListEl.addEventListener("contextmenu", event => {
+         event.preventDefault();
+         if(event.target.closest("li")) {
+            document.body.addEventListener("click", closeContextMenu);
+
+            taskContextMenu.classList.add("visible");
+            taskContextMenu.style.top = event.pageY + "px";
+            taskContextMenu.style.left = event.pageX + "px";
+         }
+      });
+
+      function closeContextMenu(event) {
+         if(!event.target.closest("#work-context-menu")) {
+            taskContextMenu.classList.remove("visible");
+            document.body.removeEventListener("click", closeContextMenu);
+         }
+      }
    }
 }

@@ -19,7 +19,7 @@
 </head>
 <body>
    <template id="new-work-template">
-      <li draggable="true" class="work">
+      <li class="work">
          <h3 class="work-name"></h3>
          <div class="work-info">
             <p class="added-info spec-info"><i class="fa-solid fa-calendar"></i> </p>
@@ -79,10 +79,13 @@
          <div class="works-list">
             <ul>
             </ul>
+            <div id="work-context-menu">
+               <p id="edit-work-btn-container"><i class="fa-solid fa-pen-to-square"></i>Edit task</p>
+               <p id="remove-work-btn-container"><i class="fa-solid fa-trash"></i>Remove task</p>
+            </div>
          </div>
          <!-- <div class="stats-container"></div> -->
       </div>
    </main>
-   <button id="trash-btn"><i class="fa-solid fa-trash"></i></button>
 </body>
 </html>
