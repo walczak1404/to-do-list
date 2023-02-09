@@ -39,6 +39,7 @@ export class TaskElement {
 
 export class TasksList {
    static list = [];
+   static tasksListEl = document.querySelector(".works-list > ul");
    static sortType = "ADDED-DATE";
    static sortOrder = "DOWN";
 
@@ -86,10 +87,9 @@ export class TasksList {
    }
 
    static loadList() {
-      const tasksListEl = document.querySelector(".works-list > ul");
-      tasksListEl.innerHTML = "";
+      this.tasksListEl.innerHTML = "";
       for(const task of this.list) {
-         tasksListEl.append(task.taskEl.taskTemplate);
+         this.tasksListEl.append(task.taskEl.taskTemplate);
       }
    }
 
@@ -117,19 +117,19 @@ export class TasksList {
       this.loadList();
    }
 
-   static addContextMenu() {
-      const tasksListEl = document.querySelector(".works-list > ul");
-      const taskContextMenu = tasksListEl.parentElement.lastElementChild;
+   static contextMenuHandler() {
+      const taskContextMenu = this.tasksListEl.parentElement.lastElementChild;
+      let item;
 
-      tasksListEl.addEventListener("touchstart", event => {
+      this.tasksListEl.addEventListener("touchstart", event => {
          event.target.closest("li").classList.add("phone-touch");
       });
 
-      tasksListEl.addEventListener("touchend", event => {
+      this.tasksListEl.addEventListener("touchend", event => {
          event.target.closest("li").classList.remove("phone-touch");
       });
 
-      tasksListEl.addEventListener("contextmenu", event => {
+      this.tasksListEl.addEventListener("contextmenu", event => {
          event.preventDefault();
          if(event.target.closest("li")) {
             document.body.addEventListener("click", closeContextMenu);
@@ -137,6 +137,7 @@ export class TasksList {
             taskContextMenu.classList.add("visible");
             taskContextMenu.style.top = event.pageY + "px";
             taskContextMenu.style.left = event.pageX + "px";
+            item = event.target.closest("li");
          }
       });
 
@@ -146,5 +147,14 @@ export class TasksList {
             document.body.removeEventListener("click", closeContextMenu);
          }
       }
+
+      //context btns
+      taskContextMenu.querySelector("#remove-work-btn-container").addEventListener("click", () => {
+         console.log(item);
+         this.tasksListEl.removeChild(item);
+         const idx = this.list.findIndex(i => i.taskEl.taskTemplate === item);
+         this.list.splice(idx, 1);
+         console.log(this.list);
+      })
    }
 }

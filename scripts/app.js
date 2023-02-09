@@ -7,7 +7,7 @@ class App {
 		NewTaskPopUp.addPopUpHandler();
 
 		WorkForm.addListener();
-		Tasks.TasksList.addContextMenu();
+		Tasks.TasksList.contextMenuHandler();
 		Tasks.TasksList.importFromStorage();
 
 		this.addSortListeners();
