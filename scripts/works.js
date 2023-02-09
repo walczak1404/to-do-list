@@ -1,15 +1,16 @@
 export class Task {
-   constructor(name, deadline, time, priority, addDate = new Date()) {
+   constructor(name, deadline, time, priority, id, addDate = new Date()) {
       this.name = name;
       this.addedDate = addDate;
       this.deadline = deadline;
       this.time = time;
       this.priority = priority;
       this.taskEl = new TaskElement(name, deadline, time, priority, this.addedDate);
+      this.id = id;
    }
 
    static convertToTask(taskLookingObj) {
-      return new Task(taskLookingObj.name, taskLookingObj.deadline, taskLookingObj.time, taskLookingObj.priority, new Date(taskLookingObj.addedDate));
+      return new Task(taskLookingObj.name, taskLookingObj.deadline, taskLookingObj.time, taskLookingObj.priority, taskLookingObj.id, new Date(taskLookingObj.addedDate));
    }
 }
 
@@ -43,8 +44,10 @@ export class TasksList {
    static sortType = "ADDED-DATE";
    static sortOrder = "DOWN";
 
+   static taskId = 1;
+
    static addTask(name, deadline, time, priority) {
-      const newTask = new Task(name, deadline, time, priority);
+      const newTask = new Task(name, deadline, time, priority, this.taskId);
       let cb;
       let idx;
 
@@ -72,7 +75,8 @@ export class TasksList {
          idx = this.list.findIndex(cb);
       }
       this.list.splice(idx, 0, newTask);
-      localStorage.setItem(`task${this.list.length}`, JSON.stringify(newTask));
+      localStorage.setItem(`task${this.taskId}`, JSON.stringify(newTask));
+      this.taskId++;
       newTask.taskEl.addObj(idx);
       console.log(this.list);
    }
@@ -81,6 +85,7 @@ export class TasksList {
       Object.keys(localStorage).forEach(key => {
          const task = Task.convertToTask(JSON.parse(localStorage.getItem(key)));
          this.list.push(task);
+         this.taskId++;
       });
       
       this.sort(this.sortType);
@@ -153,6 +158,7 @@ export class TasksList {
          console.log(item);
          this.tasksListEl.removeChild(item);
          const idx = this.list.findIndex(i => i.taskEl.taskTemplate === item);
+         localStorage.removeItem(`task${this.list[idx].id}`);
          this.list.splice(idx, 1);
          console.log(this.list);
       })
