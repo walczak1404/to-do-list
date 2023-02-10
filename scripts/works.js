@@ -127,11 +127,19 @@ export class TasksList {
       let item;
 
       this.tasksListEl.addEventListener("touchstart", event => {
-         event.target.closest("li").classList.add("phone-touch");
+         try {
+            event.target.closest("li").classList.add("phone-touch");
+         } catch {
+            console.log("not li");
+         }
       });
 
       this.tasksListEl.addEventListener("touchend", event => {
-         event.target.closest("li").classList.remove("phone-touch");
+         try {
+            event.target.closest("li").classList.remove("phone-touch");
+         } catch {
+            console.log("not li");
+         }
       });
 
       this.tasksListEl.addEventListener("contextmenu", event => {
