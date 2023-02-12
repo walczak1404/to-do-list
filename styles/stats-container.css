@@ -17,6 +17,12 @@
    justify-content: space-evenly;
 }
 
+#stats > p {
+   flex-basis: 33%;
+   min-width: 181px;
+   text-align: center;
+}
+
 .task-value {
    font-weight: 700;
 }

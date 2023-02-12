@@ -14,7 +14,7 @@ export const NewTaskPopUp = {
 
       this.PriorityHandler();
 
-      this.newTaskContainer.addEventListener("click", this.closePopUpHandler.bind(this));
+      this.newTaskContainer.addEventListener("mousedown", this.closePopUpHandler.bind(this));
       closeNewTaskBtn.addEventListener("click", this.closePopUpHandler.bind(this));
       taskForm.addEventListener("submit", this.closePopUpHandler.bind(this));
    },

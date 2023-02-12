@@ -44,7 +44,7 @@ export class TasksList {
    static sortType = "ADDED-DATE";
    static sortOrder = "DOWN";
 
-   static taskId = 1;
+   static taskId = localStorage.getItem("taskId") || 1;
 
    static addTask(name, deadline, time, priority) {
       const newTask = new Task(name, deadline, time, priority, this.taskId);
@@ -77,18 +77,21 @@ export class TasksList {
       this.list.splice(idx, 0, newTask);
       localStorage.setItem(`task${this.taskId}`, JSON.stringify(newTask));
       this.taskId++;
+      localStorage.setItem("taskId", this.taskId);
       newTask.taskEl.addObj(idx);
       console.log(this.list);
+      this.updateStats();
    }
 
    static importFromStorage() {
       Object.keys(localStorage).forEach(key => {
+         if(key === "taskId") return;
          const task = Task.convertToTask(JSON.parse(localStorage.getItem(key)));
          this.list.push(task);
-         this.taskId++;
       });
       
       this.sort(this.sortType);
+      this.updateStats();
    }
 
    static loadList() {
@@ -155,10 +158,8 @@ export class TasksList {
       });
 
       function closeContextMenu(event) {
-         if(!event.target.closest("#work-context-menu")) {
-            taskContextMenu.classList.remove("visible");
-            document.body.removeEventListener("click", closeContextMenu);
-         }
+         taskContextMenu.classList.remove("visible");
+         document.body.removeEventListener("click", closeContextMenu);
       }
 
       //context btns
@@ -169,6 +170,32 @@ export class TasksList {
          localStorage.removeItem(`task${this.list[idx].id}`);
          this.list.splice(idx, 1);
          console.log(this.list);
+         this.updateStats();
       })
+   }
+
+   static updateStats() {
+      const amountStat = document.querySelector("#task-amount-stat-value");
+      const lengthStat = document.querySelector("#task-length-stat-value");
+      const lastStat = document.querySelector("#task-last-stat-value");
+
+      amountStat.textContent = this.list.length;
+
+      lengthStat.textContent = this.list.reduce((prev, curr) => {
+         let sumDate = new Date();
+
+         sumDate.setHours(parseInt(prev.split(":")[0]) + parseInt(curr.time.split(":")[0]));
+         sumDate.setMinutes(parseInt(prev.split(":")[1]) + parseInt(curr.time.split(":")[1]));
+
+         const hours = sumDate.getHours() < 10 ? `0${sumDate.getHours()}` : sumDate.getHours();
+         const minutes = sumDate.getMinutes() < 10 ? `0${sumDate.getMinutes()}` : sumDate.getMinutes();
+
+         return `${hours}:${minutes}`;
+      }, "00:00");
+
+      const deadlineList = this.list.map(task => task.deadline);
+      deadlineList.sort();
+
+      lastStat.textContent = deadlineList[deadlineList.length - 1];
    }
 }
