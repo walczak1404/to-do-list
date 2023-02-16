@@ -43,6 +43,7 @@ export const NewTaskPopUp = {
          document.querySelector("#new-work-form").reset();
          document.querySelector("#new-work-form").priority.setAttribute("value", "");
          document.querySelector("#new-work-errors-container").classList.remove("visible");
+         document.querySelector("#errors-list").innerHTML = "";
       }
    }
 };

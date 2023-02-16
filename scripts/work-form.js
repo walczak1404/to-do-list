@@ -46,11 +46,20 @@ export class WorkForm {
       this.formEl.addEventListener("submit", this.submitTask.bind(this), true);
    }
 
-   static showErrors(errorList) {
-      const errorContainer = document.querySelector("#new-work-errors-container");
-      errorContainer.classList.add("visible");
-      errorList.forEach(error => {
-         console.log(error);
+   static showErrors(errorsList) {
+      const errorsContainer = document.querySelector("#new-work-errors-container");
+      const errorsListEl = errorsContainer.querySelector("#errors-list");
+      errorsContainer.classList.add("visible");
+      errorsList.forEach(error => {
+         const p = document.createElement('p');
+         p.textContent = error;
+         errorsListEl.appendChild(p);
       })
+      document.querySelector("#accept-errors-btn").addEventListener("click", this.acceptErrors);
+   }
+
+   static acceptErrors() {
+      document.querySelector("#new-work-errors-container").classList.remove("visible");
+      document.querySelector("#errors-list").innerHTML = "";
    }
 }
