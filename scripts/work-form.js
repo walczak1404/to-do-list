@@ -47,6 +47,8 @@ export class WorkForm {
    }
 
    static showErrors(errorList) {
+      const errorContainer = document.querySelector("#new-work-errors-container");
+      errorContainer.classList.add("visible");
       errorList.forEach(error => {
          console.log(error);
       })
