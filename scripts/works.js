@@ -171,7 +171,9 @@ export class TasksList {
          this.list.splice(idx, 1);
          console.log(this.list);
          this.updateStats();
-      })
+      });
+
+      taskContextMenu.querySelector("#edit-work-btn-container").addEventListener("click", () => {alert("Not implemented yet :( \n Work in progress!")});
    }
 
    static updateStats() {

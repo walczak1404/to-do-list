@@ -61,5 +61,6 @@ export class WorkForm {
    static acceptErrors() {
       document.querySelector("#new-work-errors-container").classList.remove("visible");
       document.querySelector("#errors-list").innerHTML = "";
+      this.removeEventListener("click", WorkForm.acceptErrors);
    }
 }
