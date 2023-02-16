@@ -40,6 +40,8 @@ export const NewTaskPopUp = {
             document.querySelector(".selected").classList.remove("selected");
             this.currentPriority = null;
          }
+         document.querySelector("#new-work-form").reset();
+         document.querySelector("#new-work-form").priority.setAttribute("value", "");
       }
    }
 };

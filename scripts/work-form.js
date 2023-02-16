@@ -1,34 +1,54 @@
-import * as Tasks from "./works.js";
+import {TasksList} from "./works.js";
 
 export class WorkForm {
    static formEl = document.querySelector("#new-work-form");
+
    static submitTask(event) {
       event.preventDefault();
 
+      const errorList = [];
+
+      if(!this.formEl.name.value) {
+         errorList.push("Name isn't provided.");
+      }
+
+      if(!this.formEl.time.value) {
+         errorList.push("Task duration isn't provided.");
+      }
+
+      if(!this.formEl.deadline.value) {
+         errorList.push("Deadline isn't provided");
+      }
+      
       if(Date.parse(this.formEl.deadline.value) < new Date().getTime()) {
-         alert("Deadline has passed!!!");
-         event.stopPropagation();
-         return;
+         errorList.push("Deadline has passed.");
       }
 
       if(!this.formEl.priority.value) {
-         alert("Choose priority!!!");
+         errorList.push("Priority isn't chosen.");
+      }
+
+      if(errorList.length) {
+         this.showErrors(errorList);
          event.stopPropagation();
          return;
       }
 
-      Tasks.TasksList.addTask(
+      TasksList.addTask(
          this.formEl.name.value,
          this.formEl.deadline.value,
          this.formEl.time.value,
          this.formEl.priority.value
       );
-
-      this.formEl.reset();
-      this.formEl.priority.setAttribute("value", "");
    }
 
    static addListener() {
       this.formEl.addEventListener("submit", this.submitTask.bind(this), true);
+   }
+
+   static showErrors(errorList) {
+      errorList.forEach(error => {
+         console.log(error);
+      })
    }
 }
