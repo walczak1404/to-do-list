@@ -145,12 +145,12 @@
 
 .prio-number {
    flex-basis:15%;
-   height:9%;
+   height: 9%;
    border: 1px solid black;
    display: flex;
    align-items: center;
    justify-content: center;
-   border-radius: 5px;
+   border-radius: 20px;
 }
 
 .prio-number.selected {
